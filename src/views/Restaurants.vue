@@ -14,13 +14,22 @@
     </div>
 
     <!-- RestaurantsPagination -->
+    <RestaurantsPagination 
+      :current-page="currentPage"
+      :total-page="totalPage"
+      :previous-page="previousPage"
+      :next-page="nextPage"
+      :category-id="categoryId"
+    />
   </div>
 </template>
 
 <script>
 import NavTabs from './../components/NavTabs'
 import RestaurantCard from './../components/RestaurantCard'
-import RestaurantsNavPills from './../components/RestaurantNavPills'
+import RestaurantsNavPills from './../components/RestaurantsNavPills'
+import RestaurantsPagination from './../components/RestaurantsPagination'
+
 
 const dummyData = {
     "restaurants": [
@@ -298,7 +307,8 @@ export default {
   components: {
     NavTabs,
     RestaurantCard,
-    RestaurantsNavPills
+    RestaurantsNavPills,
+    RestaurantsPagination
   },
   data () {
     return {
@@ -306,7 +316,9 @@ export default {
       categories: [],
       categoryId: -1,
       currentPage: 1,
-      totalPage: -1 
+      totalPage: -1,
+      previousPage: -1,
+      nextPage: -1
     }
   },
   created() {
@@ -314,12 +326,14 @@ export default {
   },
   methods: {
     fetchRestaurants() {
-      const { restaurants, categories, categoryId, page, totalPage} = dummyData
+      const { restaurants, categories, categoryId, page, totalPage, prev, next } = dummyData
       this.restaurants = restaurants
       this.categories = categories
       this.categoryId = categoryId
       this.currentPage = page
       this.totalPage = totalPage
+      this.previousPage = prev
+      this.nextPage = next
     }
   }
 }
