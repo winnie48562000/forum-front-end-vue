@@ -3,7 +3,7 @@
     <NavTabs />
 
     <!-- RestaurantsNavPills -->
-
+    <RestaurantsNavPills :categories="categories" />
     <div class="row">
       <!-- RestaurantCard -->
       <RestaurantCard 
@@ -20,6 +20,7 @@
 <script>
 import NavTabs from './../components/NavTabs'
 import RestaurantCard from './../components/RestaurantCard'
+import RestaurantsNavPills from './../components/RestaurantNavPills'
 
 const dummyData = {
     "restaurants": [
@@ -296,7 +297,8 @@ export default {
   name: 'Restaurants',
   components: {
     NavTabs,
-    RestaurantCard
+    RestaurantCard,
+    RestaurantsNavPills
   },
   data () {
     return {
