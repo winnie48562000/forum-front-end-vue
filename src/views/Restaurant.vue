@@ -8,7 +8,7 @@
       :initialRestaurant="restaurant" 
     />
     <!-- 新增評論 CreateComment -->
-    <RestaurantComments />
+    <RestaurantComments :restaurant-comments="restaurantComments" />
   </div>
 </template>
 
@@ -127,8 +127,7 @@ export default {
     this.fetchRestaurant(id)
   },
   methods: {
-    fetchRestaurant (restaurantId) {
-      console.log('id', restaurantId)
+    fetchRestaurant () {
       const { restaurant, isFavorited, isLiked } = dummyData
       const {
         id,
