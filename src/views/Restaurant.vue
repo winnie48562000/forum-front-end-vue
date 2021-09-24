@@ -5,16 +5,17 @@
     <hr>
     <!-- 餐廳評論 RestaurantComments -->
     <RestaurantDetail 
-      v-for="restaurant in restaurant" 
-      :key="restaurant.id" 
       :initialRestaurant="restaurant" 
     />
     <!-- 新增評論 CreateComment -->
+    <RestaurantComments />
   </div>
 </template>
 
 <script>
 import RestaurantDetail from './../components/RestaurantDetail'
+import RestaurantComments from './../components/RestaurantComments'
+
 
 const dummyData = {
     "restaurant": {
@@ -101,7 +102,8 @@ const dummyData = {
 export default {
   name: 'Restaurant',
   components: {
-    RestaurantDetail
+    RestaurantDetail,
+    RestaurantComments
   },
   data() {
     return {
