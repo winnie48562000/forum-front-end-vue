@@ -8,7 +8,10 @@
       :initialRestaurant="restaurant" 
     />
     <!-- 新增評論 CreateComment -->
-    <RestaurantComments :restaurant-comments="restaurantComments" />
+    <RestaurantComments
+      :restaurant-comments="restaurantComments"
+      @after-delete-comment="afterDeleteComment"
+    />
   </div>
 </template>
 
@@ -155,6 +158,11 @@ export default {
       }
 
       this.restaurantComments = Comments
+    },
+    afterDeleteComment(commentId) {
+      this.restaurantComments = this.restaurantComments.filter(
+        comment => comment.id !== commentId
+      )
     }
   }
 }
